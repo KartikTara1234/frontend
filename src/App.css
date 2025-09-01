@@ -1,0 +1,1466 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background: #f4f5fb;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 240px;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 24px 0;
+  position: relative;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 32px 24px 24px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.logo {
+  background: #e0e7ff;
+  color: #6366f1;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+.hospital-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #22223b;
+}
+.hospital-name span {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+.sidebar-nav {
+  flex: 1;
+  margin-top: 24px;
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-nav li {
+  padding: 14px 32px;
+  color: #374151;
+  font-size: 1rem;
+  cursor: pointer;
+  border-left: 4px solid transparent;
+  transition: background 0.2s, border 0.2s;
+}
+.sidebar-nav li:hover, .sidebar-nav li.active {
+  background: #f1f5f9;
+  border-left: 4px solid #6366f1;
+  color: #6366f1;
+}
+.sidebar-settings {
+  margin-top: 32px;
+  color: #9ca3af;
+}
+.main-content {
+  flex: 1;
+  padding: 32px 40px 32px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.main-header {
+  margin-bottom: 16px;
+}
+.dashboard-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.tab {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px 8px 0 0;
+  padding: 10px 24px;
+  font-size: 1rem;
+  color: #6366f1;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s, color 0.2s;
+}
+.tab.active, .tab:hover {
+  background: #6366f1;
+  color: #fff;
+}
+.dashboard-cards {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px 32px;
+  font-size: 1.1rem;
+  color: #22223b;
+  min-width: 160px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6366f1;
+}
+.download-report {
+  margin-left: auto;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.download-report:hover {
+  background: #4f46e5;
+}
+.dashboard-main {
+  display: flex;
+  gap: 32px;
+  margin-top: 16px;
+}
+.room-occupancy {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+  flex: 2;
+}
+.room-occupancy h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+.room-occupancy table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.room-occupancy th, .room-occupancy td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+.room-occupancy th {
+  color: #9ca3af;
+  font-weight: 500;
+}
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.status.occupied {
+  background: #fef3c7;
+  color: #b45309;
+}
+.status.paid {
+  background: #d1fae5;
+  color: #065f46;
+}
+.status.unpaid {
+  background: #fee2e2;
+  color: #dc2626;
+}
+.action-icons {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #6366f1;
+}
+.activity-feed {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+  flex: 1;
+  min-width: 260px;
+  max-width: 320px;
+}
+.activity-feed h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+.activity-feed ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.activity-feed li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 0.98rem;
+  color: #374151;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: #e0e7ff;
+  color: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 12px;
+}
+
+/* Patients Component Styles */
+.patients-container {
+  background: #f4f5fb;
+  min-height: 100vh;
+  padding: 32px 40px;
+}
+
+.patients-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.back-button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 24px;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #4f46e5;
+}
+
+.patients-header h1 {
+  margin: 0;
+  color: #22223b;
+  font-size: 2rem;
+}
+
+.patients-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.patient-form-section, .patients-list-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+}
+
+.patient-form-section h2, .patients-list-section h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #22223b;
+  font-size: 1.2rem;
+}
+
+.patient-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.char-count {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.submit-button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background: #4f46e5;
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.patients-table th, .patients-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.patients-table th {
+  color: #9ca3af;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.patients-table td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .patients-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .patients-container {
+    padding: 16px;
+  }
+  
+  .patients-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .back-button {
+    margin-right: 0;
+  }
+}
+
+/* Pharmacy Component Styles */
+.pharmacy-container {
+  background: #f4f5fb;
+  min-height: 100vh;
+  padding: 32px 40px;
+}
+
+.pharmacy-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pharmacy-header h1 {
+  margin: 0;
+  color: #22223b;
+  font-size: 2rem;
+}
+
+.pharmacy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.inventory-form-section, .inventory-list-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+}
+
+.inventory-form-section h2, .inventory-list-section h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #22223b;
+  font-size: 1.2rem;
+}
+
+.inventory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th, .inventory-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.inventory-table th {
+  color: #9ca3af;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.inventory-table td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.category-badge.pain-relief {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.category-badge.antibiotic {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.category-badge.antiviral {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.category-badge.antifungal {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.category-badge.cardiovascular {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.category-badge.diabetes {
+  background: #fef7cd;
+  color: #a16207;
+}
+
+.category-badge.respiratory {
+  background: #e0f2fe;
+  color: #0c4a6e;
+}
+
+.category-badge.gastrointestinal {
+  background: #fdf4ff;
+  color: #a21caf;
+}
+
+.category-badge.vitamins {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.category-badge.other {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.quantity-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.quantity-badge.low {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.quantity-badge.medium {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.quantity-badge.high {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.expiry-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.expiry-badge.expired {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.expiry-badge.expiring-soon {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.expiry-badge.valid {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* Responsive Design for Pharmacy */
+@media (max-width: 1024px) {
+  .pharmacy-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pharmacy-container {
+    padding: 16px;
+  }
+  
+  .pharmacy-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Employees Component Styles */
+.employees-container {
+  background: #f4f5fb;
+  min-height: 100vh;
+  padding: 32px 40px;
+}
+
+.employees-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.employees-header h1 {
+  margin: 0;
+  color: #22223b;
+  font-size: 2rem;
+}
+
+.employees-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.employee-form-section, .employees-list-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+}
+
+.employee-form-section h2, .employees-list-section h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #22223b;
+  font-size: 1.2rem;
+}
+
+.employee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.form-group input, .form-group select {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.submit-button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background: #4f46e5;
+}
+
+.employees-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employees-table th, .employees-table td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.employees-table th {
+  color: #9ca3af;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.employees-table td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design for Employees */
+@media (max-width: 1024px) {
+  .employees-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .employees-container {
+    padding: 16px;
+  }
+  .employees-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* Availability Component Styles */
+.availability-container {
+  background: #f4f5fb;
+  min-height: 100vh;
+  padding: 32px 40px;
+}
+
+.availability-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.availability-header h1 {
+  margin: 0;
+  color: #22223b;
+  font-size: 2rem;
+}
+
+.availability-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.bed-selection-section, .booking-form-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  padding: 24px;
+}
+
+.bed-selection-section h2, .booking-form-section h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #22223b;
+  font-size: 1.2rem;
+}
+
+.bed-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.bed {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  min-height: 80px;
+}
+
+.bed.available {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: #10b981;
+}
+
+.bed.booked {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #ef4444;
+}
+
+.bed.selected {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-color: #6366f1;
+  transform: scale(1.05);
+}
+
+.bed:hover {
+  transform: scale(1.02);
+}
+
+.bed-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.bed-info {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.patient-name {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.booking-time {
+  opacity: 0.8;
+}
+
+.bed-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+}
+
+.legend-color.available {
+  background: #d1fae5;
+}
+
+.legend-color.booked {
+  background: #fee2e2;
+}
+
+.legend-color.selected {
+  background: #e0e7ff;
+}
+
+.stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6366f1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.booking-form {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.booking-form h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #22223b;
+}
+
+.booking-form .form-group {
+  margin-bottom: 16px;
+}
+
+.booking-form .form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.booking-form .form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.booking-form .form-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.booking-form .submit-button {
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.booking-form .cancel-button {
+  background: #6b7280;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.booked-beds-list h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #22223b;
+}
+
+.booked-beds {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.booked-bed-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #fef2f2;
+  border-radius: 6px;
+  border-left: 4px solid #ef4444;
+}
+
+.booked-bed-item .bed-number {
+  font-weight: bold;
+  color: #dc2626;
+}
+
+.booked-bed-item .patient-name {
+  color: #374151;
+}
+
+.booked-bed-item .booking-time {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.no-bookings-message {
+  text-align: center;
+  padding: 24px;
+  color: #6b7280;
+  font-style: italic;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px dashed #d1d5db;
+}
+
+/* Responsive Design for Availability */
+@media (max-width: 1024px) {
+  .availability-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .bed-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .availability-container {
+    padding: 16px;
+  }
+  
+  .availability-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .bed-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .bed-legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Login Component Styles */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f5fb 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.glass-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  right: -150px;
+  background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+}
+
+.glass-shape-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -100px;
+  left: -100px;
+  background: linear-gradient(45deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+}
+
+.glass-shape-3 {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 10%;
+  background: linear-gradient(45deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+}
+
+.login-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-header .logo {
+  background: #6366f1;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 12px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.login-header h1 {
+  margin: 0 0 8px 0;
+  color: #22223b;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.login-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.login-form-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-form-container h2 {
+  margin: 0 0 8px 0;
+  color: #22223b;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.login-subtitle {
+  margin: 0 0 32px 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 1.1rem;
+  color: #6b7280;
+  z-index: 2;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #6b7280;
+  z-index: 2;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .checkmark::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.forgot-password {
+  color: #6366f1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.login-button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.divider {
+  text-align: center;
+  margin: 24px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+.divider span {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0 16px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.social-login {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.social-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  background: #f9fafb;
+  border-color: #6366f1;
+}
+
+.social-icon {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.signup-prompt {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.signup-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design for Login */
+@media (max-width: 480px) {
+  .login-content {
+    padding: 20px;
+  }
+  
+  .login-form-container {
+    padding: 24px;
+  }
+  
+  .social-login {
+    flex-direction: column;
+  }
+}
+
+.lock-button {
+  position: absolute;
+  left: 24px;
+  bottom: 32px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #6366f1;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.06);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  z-index: 10;
+}
+.lock-button:hover {
+  background: #6366f1;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
+}
+
+/* Loading and Error States */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6366f1;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.error-message {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  border-left: 4px solid #ef4444;
+}
+
+/* Disabled states for form elements */
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:disabled {
+  background: #9ca3af !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Login error message */
+.login-form-container .error-message {
+  margin-bottom: 20px;
+  text-align: center;
+}
