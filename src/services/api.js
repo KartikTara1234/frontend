@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = "https://backend-62gu.onrender.com";
 
 // Helper function to get auth token from localStorage
 const getAuthToken = () => {
